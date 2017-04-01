@@ -5,7 +5,7 @@ Web scraper that collects information about products at Jan linders.
 All information is uploaded to a MySQL database. 
 You can either run one locally using a program like xampp or get free hosting at a company.
 
-Change your credentials in the db.py file to your own.
+Change your credentials and database name in the db.py file to your own.
 
 In your sql server create this table:
 ```sql
