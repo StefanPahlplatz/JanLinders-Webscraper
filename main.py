@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import db
 import re
 import progressbar as p
+import time
 
 
 # Replace null string with ''.
@@ -30,6 +31,8 @@ print("""
 \____/ \__,_|_| |_\_____/_|_| |_|\__,_|\___|_|  |___/  \/  \/ \___|_.__/|___/\___|_|  \__,_| .__/ \___|_|   
                                                                                            | |              
                                                                                            |_|              """)
+# Start timer.
+start = time.time()
 
 # Get the main page.
 soup = download_url("http://www.janlinders.nl/ons-assortiment.html")
@@ -89,3 +92,7 @@ for j in range(0, len(links)):
         # print(name, price, group)
 
         db.insert(name, price, brand, weight, group)
+
+# Show the total time.
+end = time.time()
+print(str.format("Total time elapsed: {0} seconds", round(end - start)))
