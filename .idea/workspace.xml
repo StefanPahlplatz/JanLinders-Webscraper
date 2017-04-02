@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d73e6b6-0b37-4ae9-89fc-f15b1ba218dc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.py" afterPath="$PROJECT_DIR$/db.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,11 +43,11 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="170">
-                <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <first_editor relative-caret-position="425">
+                <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
                 <folding>
-                  <marker date="1491135221345" expanded="true" signature="527:795" ph="CREATE TABLE... products" />
-                  <marker date="1491135221345" expanded="true" signature="757:795" ph="CREATE TABLE... products" />
+                  <marker date="1491135302709" expanded="true" signature="527:795" ph="CREATE TABLE... products" />
+                  <marker date="1491135302709" expanded="true" signature="757:795" ph="CREATE TABLE... products" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -508,8 +506,8 @@
           <first_editor relative-caret-position="170">
             <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
             <folding>
-              <marker date="1491135221345" expanded="true" signature="527:795" ph="CREATE TABLE... products" />
-              <marker date="1491135221345" expanded="true" signature="757:795" ph="CREATE TABLE... products" />
+              <marker date="1491135302709" expanded="true" signature="527:795" ph="CREATE TABLE... products" />
+              <marker date="1491135302709" expanded="true" signature="757:795" ph="CREATE TABLE... products" />
             </folding>
           </first_editor>
           <second_editor />
@@ -568,8 +566,8 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1491135221345" expanded="true" signature="527:795" ph="CREATE TABLE... products" />
-              <marker date="1491135221345" expanded="true" signature="757:795" ph="CREATE TABLE... products" />
+              <marker date="1491135302709" expanded="true" signature="527:795" ph="CREATE TABLE... products" />
+              <marker date="1491135302709" expanded="true" signature="757:795" ph="CREATE TABLE... products" />
             </folding>
           </first_editor>
           <second_editor />
@@ -683,18 +681,18 @@
         <state relative-caret-position="136">
           <caret line="8" column="82" lean-forward="false" selection-start-line="8" selection-start-column="82" selection-end-line="8" selection-end-column="82" />
           <folding>
-            <marker date="1491135221345" expanded="true" signature="527:795" ph="CREATE TABLE... products" />
-            <marker date="1491135221345" expanded="true" signature="757:795" ph="CREATE TABLE... products" />
+            <marker date="1491135302709" expanded="true" signature="527:795" ph="CREATE TABLE... products" />
+            <marker date="1491135302709" expanded="true" signature="757:795" ph="CREATE TABLE... products" />
           </folding>
         </state>
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="170">
-            <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <first_editor relative-caret-position="425">
+            <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
             <folding>
-              <marker date="1491135221345" expanded="true" signature="527:795" ph="CREATE TABLE... products" />
-              <marker date="1491135221345" expanded="true" signature="757:795" ph="CREATE TABLE... products" />
+              <marker date="1491135302709" expanded="true" signature="527:795" ph="CREATE TABLE... products" />
+              <marker date="1491135302709" expanded="true" signature="757:795" ph="CREATE TABLE... products" />
             </folding>
           </first_editor>
           <second_editor />
