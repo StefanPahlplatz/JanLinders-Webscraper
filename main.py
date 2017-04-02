@@ -2,49 +2,62 @@ import urllib.request
 from bs4 import BeautifulSoup
 import db
 import re
+import progressbar as p
 
+
+# Replace null string with ''.
 def xstr(s):
     if s is None:
         return ''
     return str(s)
 
-# Retrieve the first main site.
-opener = urllib.request.FancyURLopener({})
-url = "http://www.janlinders.nl/ons-assortiment.html"
-f = opener.open(url)
-content = f.read()
 
-# Parse the html code.
-soup = BeautifulSoup(content, "html.parser")
+# Download a page and parse it with BeautifulSoup
+def download_url(url):
+    # Retrieve the first main site.
+    opener = urllib.request.FancyURLopener({})
+    f = opener.open(url)
+    content = f.read()
+    return BeautifulSoup(content, "html.parser")
 
-# Get all links that contain products.
+
+print("""
+   ___             _     _           _                 _    _      _                                        
+  |_  |           | |   (_)         | |               | |  | |    | |                                       
+    | | __ _ _ __ | |    _ _ __   __| | ___ _ __ ___  | |  | | ___| |__  ___  ___ _ __ __ _ _ __   ___ _ __ 
+    | |/ _` | '_ \| |   | | '_ \ / _` |/ _ \ '__/ __| | |/\| |/ _ \ '_ \/ __|/ __| '__/ _` | '_ \ / _ \ '__|
+/\__/ / (_| | | | | |___| | | | | (_| |  __/ |  \__ \ \  /\  /  __/ |_) \__ \ (__| | | (_| | |_) |  __/ |   
+\____/ \__,_|_| |_\_____/_|_| |_|\__,_|\___|_|  |___/  \/  \/ \___|_.__/|___/\___|_|  \__,_| .__/ \___|_|   
+                                                                                           | |              
+                                                                                           |_|              """)
+
+# Get the main page.
+soup = download_url("http://www.janlinders.nl/ons-assortiment.html")
+
+# Get all container that has all group links.
 catalog_subnav = soup.find("div", {"id": "catalog_subnav"})
 catalogs = catalog_subnav.findAll("li")
+
+# Get all group links.
 links = []
 for i in range(0, len(catalogs)):
     for link in catalogs[i].findAll("a", href=True):
         links.append(str.format("http://www.janlinders.nl/" + link['href']))
 
-# Database reference.
+# Database instance.
 db = db.Database()
 
 for j in range(0, len(links)):
     # Print progress.
-    percentage = round(j / len(links) * 100, 2)
-    print(str(percentage) + "%")
+    p.Progressbar.print_progress(j, len(links), prefix="Progress:", suffix="Complete", bar_length=50)
 
-    # Retrieve the first main site.
-    opener = urllib.request.FancyURLopener({})
-    f = opener.open(links[j])
-    content = f.read()
+    # Download the current page.
+    soup = download_url(links[j])
 
-    # Parse the html code.
-    soup = BeautifulSoup(content, "html.parser")
-
-    # Find all elements.
+    # Find all products on the page.
     mydivs = soup.findAll("div", {"class": "item_container"})
 
-    # Get the details for each element.
+    # Get the details for each product.
     for i in range(0, len(mydivs)):
         # Get the group name.
         group = soup.find("h1").string
@@ -61,15 +74,18 @@ for j in range(0, len(links)):
         # Get the price.
         pricebig = mydivs[i].find("span", {"class": "big"}).string
         if re.match("^\d+\.\d+$", pricebig):
+            # Format of the string is something like "15.24"
             matches = re.split("\.", pricebig)
             pricesmall = int(matches[1])
             pricebig = int(matches[0])
         else:
+            # Price is split up in two elements.
             pricebig = int(pricebig)
             pricesmall = int(mydivs[i].find("span", {"class": "small"}).string)
+
         price = round(pricebig + (pricesmall / 100), 2)
 
-        print(name, price, group)
+        # To view the items that are scraped uncomment the next line.
+        # print(name, price, group)
 
-        query = "INSERT INTO products (name, price, brand, weight, `group`) VALUES ('" + name + "', " + str(price) + ", '" + brand + "', '" + weight + "', '"+group+"')"
-        db.insert(query)
+        db.insert(name, price, brand, weight, group)

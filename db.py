@@ -11,17 +11,14 @@ class Database:
         self.connection = MySQLdb.connect(self.host, self.user, self.password, self.db)
         self.cursor = self.connection.cursor()
 
-    def insert(self, query):
+    def insert(self, name, price, brand, weight, group):
         try:
+            query = "INSERT INTO products (name, price, brand, weight, `group`) VALUES ('" + \
+                    name + "', " + str(price) + ", '" + brand + "', '" + weight + "', '" + group + "')"
             self.cursor.execute(query)
             self.connection.commit()
         except:
             self.connection.rollback()
-
-    def query(self, query):
-        cursor = self.connection.cursor( MySQLdb.cursors.DictCursor )
-        cursor.execute(query)
-        return cursor.fetchall()
 
     def __del__(self):
         self.connection.close()
