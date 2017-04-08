@@ -3,6 +3,7 @@
 
 Gets its data from [jan linders](http://www.janlinders.nl/ons-assortiment.html).
 
+![Scraper in action](https://cloud.githubusercontent.com/assets/23485653/24828120/c9dcfe7c-1c56-11e7-88c9-ee06d1bbc7e7.png)
 
 # How to use
 All information is uploaded to a MySQL database. 
