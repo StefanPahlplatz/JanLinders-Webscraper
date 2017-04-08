@@ -4,6 +4,7 @@ import db
 import re
 import progressbar as p
 import time
+import sys
 
 
 # Replace null string with ''.
@@ -48,7 +49,11 @@ for i in range(0, len(catalogs)):
         links.append(str.format("http://www.janlinders.nl/" + link['href']))
 
 # Database instance.
-db = db.Database()
+try:
+    db = db.Database()
+except:
+    print("Couldn't create database instance, are you sure you have the database configured and running?")
+    sys.exit()
 
 for j in range(0, len(links)):
     # Print progress.
