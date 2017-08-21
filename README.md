@@ -24,7 +24,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 ```
 
-# Todo
+# Ideas
 - [x] Improve UI.
 - [x] Show elapsed time when done.
 - [ ] Scrape offers page and store them in a seperate table.
